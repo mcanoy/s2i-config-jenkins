@@ -16,7 +16,7 @@ if(macOSXNodeURL != null) {
         System.getenv('OPENSHIFT_BUILD_NAMESPACE') + "-" + "mac-osx-key-id", // Credentials ID
         (String)null, // JVM Options
         (String)null, // JavaPath
-        (String)null, // Prefix Start Slave Command
+        "source ~/.bash_profile && ", // Prefix Start Slave Command
         (String)null, // Suffix Start Slave Command
         (Integer)null,// Connection Timeout in Seconds
         (Integer)null,// Maximum Number of Retries
@@ -27,7 +27,7 @@ if(macOSXNodeURL != null) {
   // Define a "Permanent Agent"
   Slave agent = new DumbSlave(
         "jenkins-slave-ios",
-        "/usr/local/var/jenkins",
+        "/Users/admin",
         launcher)
   agent.nodeDescription = "Mac OSX node"
   agent.numExecutors = 2
