@@ -81,6 +81,8 @@ if (rc == 200) {
 
     sonarRunner.save()
 
+    sonarConfig.getInstallations()[0].migrateTokenToCredential()
+
     LOG.log(Level.INFO, 'SonarQube configuration complete')
 } else {
     LOG.log(Level.INFO, "Request failed: ${rc}")
