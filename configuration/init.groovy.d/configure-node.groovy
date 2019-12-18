@@ -3,7 +3,7 @@ import jenkins.model.*
 import hudson.slaves.*
 import hudson.plugins.sshslaves.verifiers.*
 
-// Format http://url.com@@node_name@@label, http://url2.com@@node_name2@@label
+// Format http://url.com@@node_name@@label@@user, http://url2.com@@node_name2@@label@@user
 
 def macOSXNodeURL = System.getenv('NODE_MAC_OSX_URL')
 
@@ -35,7 +35,7 @@ if(macOSXNodeURL != null) {
     // Define a "Permanent Agent"
     Slave agent = new DumbSlave(
           nodeInfo[1].trim(),
-          "/Users/admin",
+          nodeInfo[3].trim(),
           launcher)
     agent.nodeDescription = "Mac OSX node"
     agent.numExecutors = 2
